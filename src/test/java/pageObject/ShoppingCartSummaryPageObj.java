@@ -22,11 +22,9 @@ public class ShoppingCartSummaryPageObj {
 	By totalCostInCart = By.id("total_price");
 	By proceedToCheckoutBtnInCart = By.xpath("//p[@class='cart_navigation clearfix']/a/span");
 
-
 	public ShoppingCartSummaryPageObj(WebDriver driver) {
 		this.driver = driver;
 	}
-
 
 	public void ValidateProductDetailsInShoppingCartSummary(Hashtable<String, String> productDetails) {
 
@@ -39,23 +37,7 @@ public class ShoppingCartSummaryPageObj {
 		String productUnitPrice = driver.findElement(productUnitPriceInCart).getText();
 		String shippingCharge = driver.findElement(shippingChargeInCart).getText();
 		String totalProductCost = driver.findElement(totalProductCostInCart).getText();
-
 		String totalCost = driver.findElement(totalCostInCart).getText();
-
-
-
-		System.out.println("IN CART:");
-		System.out.println("pageTitle:"+ pageTitle);
-		System.out.println("productModel:"+ productModel);
-		System.out.println("productAttribute:"+ productAttribute);
-		System.out.println("productUnitPrice:"+ productUnitPrice);
-		System.out.println("shippingCharge:"+ shippingCharge);
-		System.out.println("totalProductCost:"+ totalProductCost);
-		System.out.println("totalCost:"+ totalCost);
-
-		System.out.println("productDetails:"+ productDetails);
-
-
 
 		softAssert.assertEquals(pageTitle, "SHOPPING-CART SUMMARY");
 		Assert.assertEquals(productsName, productDetails.get("productName"));
@@ -65,9 +47,5 @@ public class ShoppingCartSummaryPageObj {
 		Assert.assertEquals(shippingCharge, productDetails.get("ShippingCharge"));
 		Assert.assertEquals(totalProductCost, productDetails.get("TotalProductCost"));
 		Assert.assertEquals(totalCost, productDetails.get("TotalCost"));
-
 	}
-
-
-
 }

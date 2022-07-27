@@ -59,7 +59,6 @@ public class CompleteFlowTest extends BaseClass {
 		
 		ProductPageObj productPageObj = new ProductPageObj(driver);
 		productDetail = productPageObj.getProductDetail();
-		System.out.println("product1:"+productDetail.get("productName"));
 		productPageObj.clickOverview();
 		
 		try {
@@ -80,15 +79,6 @@ public class CompleteFlowTest extends BaseClass {
 		productOtherDetail.put("color", color);
 		productOtherDetail.put("model", productPageObj.overviewModelNum());
 			
-		System.out.println("Test product1:"+productDetail.get("productName"));
-		System.out.println("###############################s");
-		System.out.println("product quantity :"+productOtherDetail);
-		
-		System.out.println("product quantity :"+productOtherDetail.get("quantity"));
-		System.out.println("product size :"+productOtherDetail.get("size"));
-		System.out.println("product color :"+productOtherDetail.get("color"));
-		
-		
 		productPageObj.changeQuantity(quantity);
 		productPageObj.changeSize(Integer.parseInt(size));
 		productPageObj.overviewColor(color);
