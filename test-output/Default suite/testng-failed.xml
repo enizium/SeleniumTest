@@ -7,6 +7,7 @@
         <methods>
           <include name="openBrowserAndUrl"/>
           <include name="completeTest" invocation-numbers="0"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- test.CompleteFlowTest -->
     </classes>

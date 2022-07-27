@@ -104,10 +104,5 @@ public class CompleteFlowTest extends BaseClass {
 		shoppingCartSummaryPageObj.ValidateProductDetailsInShoppingCartSummary(productDetails);
 
 	}
-	
-//	@AfterSuite
-//public void teardown() {
-//		driver.close();
-//	}
 
 }

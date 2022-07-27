@@ -82,13 +82,6 @@ public class ProductPageObj {
 		productDetails.put("productActualPrice", productActualPrice);
 		productDetails.put("productDiscount", productDiscount);
 
-
-		//console
-		System.out.println("product1:"+ productDetails.get("productName"));
-		System.out.println("productPrice:"+ productDetails.get("productPrice"));
-		System.out.println("productActualPrice:"+ productDetails.get("productActualPrice"));
-		System.out.println("productDiscount:"+ productDetails.get("productDiscount"));
-
 		return productDetails;
 	}
 
@@ -99,7 +92,6 @@ public class ProductPageObj {
 
 		// Scrolling down the page till the element is found		
 		js.executeScript("arguments[0].scrollIntoView();", ele);
-		System.out.println("product1654:");
 		Actions actions = new Actions(driver);
 
 		actions.moveToElement(ele).build().perform();
@@ -112,31 +104,15 @@ public class ProductPageObj {
 		WebElement frameElement=driver.findElement(iframeTab);
 		driver.switchTo().frame(frameElement);
 
-		//console
-		System.out.println("product1:"+ productDetail.get("productName"));
-		System.out.println("productPrice:"+ productDetail.get("productPrice"));
-		System.out.println("productActualPrice:"+ productDetail.get("productActualPrice"));
-		System.out.println("productDiscount:"+ productDetail.get("productDiscount"));
-
-
 		String actualProductName = driver.findElement(overviewProdName).getText();
 		String actualSellingPrice = driver.findElement(overviewDisplayPrice).getText();
 		String actualDiscount = driver.findElement(overviewDis).getText();
 		String actualOldPrice =driver.findElement(overviewOldprice).getText();
 
-		//console
-
-		System.out.println("product1:"+actualProductName);
-		System.out.println("productPrice:"+ actualSellingPrice);
-		System.out.println("productActualPrice:"+ actualOldPrice);
-		System.out.println("productDiscount:"+ actualDiscount);
-
-
 		assertEquals(actualProductName, productDetail.get("productName"));
 		assertEquals(actualSellingPrice, productDetail.get("productPrice"));
 		assertEquals(actualDiscount, productDetail.get("productDiscount"));
 		assertEquals(actualOldPrice, productDetail.get("productActualPrice"));
-		System.out.println("productActualPrice:1!!!!"+productDetail.get("actualOldPrice"));
 	}
 
 	public void changeQuantity(String quantity) {
@@ -192,35 +168,16 @@ public class ProductPageObj {
 
 		Thread.sleep(5000);
 		String succesMsg = driver.findElement(successfullyAddToCartMsg).getText();
-		System.out.println("product succesMsf  :"+succesMsg);
-
 		String  nameOfProductInCart = driver.findElement(successfullyAddToCartProductName).getText();
-		System.out.println(" NameOfProductInCart  :"+nameOfProductInCart);
-
 		String  attributeOfProductInCart = driver.findElement(successfullyAddToCartAttribute).getText();
-		System.out.println(" successfullyAddToCartAttribute  :"+attributeOfProductInCart);
-
 		String  quantityOfProductInCart = driver.findElement(successfullyAddToCartQuantity).getText();
-		System.out.println(" successfully quantityOfProductInCart  :"+quantityOfProductInCart);
-
 		String  priceOfProductInCart = driver.findElement(successfullyAddToCartProductPrice).getText();
-		System.out.println(" successfully priceOfProductInCart  :"+priceOfProductInCart);
-
 		String  shippingChargeOfProductInCart = driver.findElement(successfullyAddToCartShippingCharge).getText();
-		System.out.println(" successfully shippingChargeOfProductInCart  :"+shippingChargeOfProductInCart);
-
 		String  totalPriceOfProductInCart = driver.findElement(successfullyAddToCartTotalPrice).getText();
-		System.out.println(" successfully totalPriceOfProductInCart  :"+totalPriceOfProductInCart);
-
-
+		
 		Assert.assertEquals(succesMsg, "Product successfully added to your shopping cart");
 		Assert.assertEquals(nameOfProductInCart, productDetail.get("productName"));
-
-
 		String attribute = productOtherDetail.get("color")+", "+ productSize.get(productOtherDetail.get("size"));
-
-		System.out.println("  attribute  :"+attribute); 
-
 		Assert.assertEquals(attributeOfProductInCart, attribute);
 		Assert.assertEquals(quantityOfProductInCart, productOtherDetail.get("quantity"));
 
